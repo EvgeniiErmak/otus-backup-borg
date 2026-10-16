@@ -1,0 +1,352 @@
+Oct 16 12:43:05 ubuntu-jammy python3[3073]: ansible-ansible.legacy.stat Invoked with path=/usr/local/bin/borg-backup.sh follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:43:05 ubuntu-jammy python3[3087]: ansible-ansible.legacy.copy Invoked with dest=/usr/local/bin/borg-backup.sh mode=0700 src=/home/vagrant/.ansible/tmp/ansible-tmp-1792154585.0500567-9247-15970393890353/.source.sh follow=False _original_basename=borg-backup.sh.j2 checksum=ac489f529fde882c79955dff62c6840f25a650f8 backup=False force=True remote_src=False unsafe_writes=False content=NOT_LOGGING_PARAMETER validate=None directory_mode=None local_follow=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:43:05 ubuntu-jammy python3[3110]: ansible-ansible.legacy.stat Invoked with path=/etc/systemd/system/borg-backup.service follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:43:06 ubuntu-jammy python3[3124]: ansible-ansible.legacy.copy Invoked with dest=/etc/systemd/system/borg-backup.service mode=0644 src=/home/vagrant/.ansible/tmp/ansible-tmp-1792154585.5251544-9264-212200902687379/.source.service follow=False _original_basename=borg-backup.service.j2 checksum=b185c76c77da7f889c155c5cb2eb849758fa8a2c backup=False force=True remote_src=False unsafe_writes=False content=NOT_LOGGING_PARAMETER validate=None directory_mode=None local_follow=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:43:06 ubuntu-jammy python3[3147]: ansible-ansible.legacy.stat Invoked with path=/etc/systemd/system/borg-backup.timer follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:43:06 ubuntu-jammy python3[3161]: ansible-ansible.legacy.copy Invoked with dest=/etc/systemd/system/borg-backup.timer mode=0644 src=/home/vagrant/.ansible/tmp/ansible-tmp-1792154585.925152-9264-212281489246666/.source.timer follow=False _original_basename=borg-backup.timer.j2 checksum=d3de1cad76d628673405d3d68065b2b85c0da4cf backup=False force=True remote_src=False unsafe_writes=False content=NOT_LOGGING_PARAMETER validate=None directory_mode=None local_follow=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:43:06 ubuntu-jammy python3[3184]: ansible-ansible.builtin.systemd Invoked with daemon_reload=True enabled=True name=borg-backup.timer state=started daemon_reexec=False scope=system no_block=False force=None masked=None
+Oct 16 12:45:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 12:45:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_12:45:00
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Archive fingerprint: 21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 12:45:01
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 12:45:01
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Duration: 0.35 seconds
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 12:45:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:45:02 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 12:45:02 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB            899.03 kB
+Oct 16 12:45:02 ubuntu-jammy borg-backup: All archives:                2.11 MB            928.94 kB            967.78 kB
+Oct 16 12:45:02 ubuntu-jammy borg-backup: 
+Oct 16 12:45:02 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Chunk index:                     668                  696
+Oct 16 12:45:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:45:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 12:45:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 12:45:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.299s CPU time.
+Oct 16 12:50:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 12:50:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_12:50:00
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Archive fingerprint: d5debd779c3d5c2213eee55d0a0cefe5503544cd48d9f83f09f098b0cbdfdcb9
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 12:50:01
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 12:50:01
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 12:50:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:50:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 12:50:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                623 B
+Oct 16 12:50:01 ubuntu-jammy borg-backup: All archives:                4.21 MB              1.86 MB            968.40 kB
+Oct 16 12:50:01 ubuntu-jammy borg-backup: 
+Oct 16 12:50:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 12:50:01 ubuntu-jammy borg-backup: Chunk index:                     669                 1392
+Oct 16 12:50:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:50:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_12:50:00              Fri, 2026-10-16 12:50:01 [d5debd779c3d5c2213eee55d0a0cefe5503544cd48d9f83f09f098b0cbdfdcb9]
+Oct 16 12:50:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 12:50:03 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 12:50:03 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.079s CPU time.
+Oct 16 12:55:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 12:55:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_12:55:00
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Archive fingerprint: 9ba952a291d5fe0fd2515341d31ff94f9e48ce1e6054df3b08c0b79b0126091f
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 12:55:01
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 12:55:01
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 12:55:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:55:02 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 12:55:02 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 12:55:02 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 12:55:02 ubuntu-jammy borg-backup: 
+Oct 16 12:55:02 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 12:55:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_12:55:00              Fri, 2026-10-16 12:55:01 [9ba952a291d5fe0fd2515341d31ff94f9e48ce1e6054df3b08c0b79b0126091f]
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_12:50:00              Fri, 2026-10-16 12:50:01 [d5debd779c3d5c2213eee55d0a0cefe5503544cd48d9f83f09f098b0cbdfdcb9]
+Oct 16 12:55:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 12:55:05 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 12:55:05 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.087s CPU time.
+Oct 16 12:55:49 ubuntu-jammy python3[3782]: ansible-ansible.legacy.stat Invoked with path=/usr/local/bin/borg-backup.sh follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:55:50 ubuntu-jammy python3[3798]: ansible-ansible.legacy.copy Invoked with dest=/usr/local/bin/borg-backup.sh mode=0700 src=/home/vagrant/.ansible/tmp/ansible-tmp-1792155349.450316-10588-70143922708503/.source.sh follow=False _original_basename=borg-backup.sh.j2 checksum=9b6f228b2bbb180f23ba05ab3bc6e0c424b4ce23 backup=False force=True remote_src=False unsafe_writes=False content=NOT_LOGGING_PARAMETER validate=None directory_mode=None local_follow=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:55:50 ubuntu-jammy python3[3821]: ansible-ansible.legacy.stat Invoked with path=/etc/systemd/system/borg-backup.service follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:55:50 ubuntu-jammy python3[3833]: ansible-ansible.legacy.file Invoked with mode=0644 dest=/etc/systemd/system/borg-backup.service _original_basename=borg-backup.service.j2 recurse=False state=file path=/etc/systemd/system/borg-backup.service force=False follow=True modification_time_format=%Y%m%d%H%M.%S access_time_format=%Y%m%d%H%M.%S unsafe_writes=False _diff_peek=None src=None modification_time=None access_time=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:55:50 ubuntu-jammy python3[3856]: ansible-ansible.legacy.stat Invoked with path=/etc/systemd/system/borg-backup.timer follow=False get_checksum=True get_size=False checksum_algorithm=sha1 get_mime=True get_attributes=True get_selinux_context=False
+Oct 16 12:55:50 ubuntu-jammy python3[3868]: ansible-ansible.legacy.file Invoked with mode=0644 dest=/etc/systemd/system/borg-backup.timer _original_basename=borg-backup.timer.j2 recurse=False state=file path=/etc/systemd/system/borg-backup.timer force=False follow=True modification_time_format=%Y%m%d%H%M.%S access_time_format=%Y%m%d%H%M.%S unsafe_writes=False _diff_peek=None src=None modification_time=None access_time=None owner=None group=None seuser=None serole=None selevel=None setype=None attributes=None
+Oct 16 12:55:51 ubuntu-jammy python3[3891]: ansible-ansible.builtin.systemd Invoked with daemon_reload=True enabled=True name=borg-backup.timer state=started daemon_reexec=False scope=system no_block=False force=None masked=None
+Oct 16 13:00:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:00:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:00:00
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Archive fingerprint: 369b74a73183a7ebf09b1583a74c3dcb8df19c1e84bad126ec7539fdbc98353d
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:00:01
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:00:01
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:00:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:00:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:00:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:00:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:00:01 ubuntu-jammy borg-backup: 
+Oct 16 13:00:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:00:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:00:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:00:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:00:00              Fri, 2026-10-16 13:00:01 [369b74a73183a7ebf09b1583a74c3dcb8df19c1e84bad126ec7539fdbc98353d]
+Oct 16 13:00:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_12:55:00              Fri, 2026-10-16 12:55:01 [9ba952a291d5fe0fd2515341d31ff94f9e48ce1e6054df3b08c0b79b0126091f]
+Oct 16 13:00:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:00:03 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Remote: finished segment check at segment 41
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:00:00 (2/2)
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:00:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:00:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:00:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.109s CPU time.
+Oct 16 13:05:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:05:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:05:00
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Archive fingerprint: cf0978f44f4875db5b5b04be232456726df55717850560530f05be04b5dd0a86
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:05:01
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:05:01
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:05:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:05:02 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:05:02 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                623 B
+Oct 16 13:05:02 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:05:02 ubuntu-jammy borg-backup: 
+Oct 16 13:05:02 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:05:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:05:00              Fri, 2026-10-16 13:05:01 [cf0978f44f4875db5b5b04be232456726df55717850560530f05be04b5dd0a86]
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:00:00              Fri, 2026-10-16 13:00:01 [369b74a73183a7ebf09b1583a74c3dcb8df19c1e84bad126ec7539fdbc98353d]
+Oct 16 13:05:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:05:03 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Remote: finished segment check at segment 53
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:05:00 (2/2)
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:05:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:05:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:05:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.111s CPU time.
+Oct 16 13:10:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:10:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:10:00
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Archive fingerprint: a7164924a64dfe654a1385c2b976cc6f09a8e507e57e54548a7266141f41fc92
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:10:01
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:10:01
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:10:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:10:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:10:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                623 B
+Oct 16 13:10:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:10:01 ubuntu-jammy borg-backup: 
+Oct 16 13:10:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:10:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:10:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:10:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:10:00              Fri, 2026-10-16 13:10:01 [a7164924a64dfe654a1385c2b976cc6f09a8e507e57e54548a7266141f41fc92]
+Oct 16 13:10:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:05:00              Fri, 2026-10-16 13:05:01 [cf0978f44f4875db5b5b04be232456726df55717850560530f05be04b5dd0a86]
+Oct 16 13:10:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: finished segment check at segment 65
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:10:00 (2/2)
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:10:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:10:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:10:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.100s CPU time.
+Oct 16 13:15:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:15:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:15:00
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Archive fingerprint: 0ce81047cc00c72a16cb1659c2d02c47a2fb18e7b73c9b12b1b7bc44b6b9166f
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:15:01
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:15:01
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:15:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:15:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:15:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:15:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:15:01 ubuntu-jammy borg-backup: 
+Oct 16 13:15:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:15:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:15:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:15:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:15:00              Fri, 2026-10-16 13:15:01 [0ce81047cc00c72a16cb1659c2d02c47a2fb18e7b73c9b12b1b7bc44b6b9166f]
+Oct 16 13:15:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:10:00              Fri, 2026-10-16 13:10:01 [a7164924a64dfe654a1385c2b976cc6f09a8e507e57e54548a7266141f41fc92]
+Oct 16 13:15:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:15:03 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Remote: finished segment check at segment 77
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:15:00 (2/2)
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:15:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:15:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:15:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.109s CPU time.
+Oct 16 13:20:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:20:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:20:00
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Archive fingerprint: 30a2fd78b3389149dd5af6d213bd78a46625e1bfa8901716eb58f8781d521f98
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:20:01
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:20:01
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:20:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:20:02 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:20:02 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:20:02 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:20:02 ubuntu-jammy borg-backup: 
+Oct 16 13:20:02 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:20:02 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:20:00              Fri, 2026-10-16 13:20:01 [30a2fd78b3389149dd5af6d213bd78a46625e1bfa8901716eb58f8781d521f98]
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:15:00              Fri, 2026-10-16 13:15:01 [0ce81047cc00c72a16cb1659c2d02c47a2fb18e7b73c9b12b1b7bc44b6b9166f]
+Oct 16 13:20:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:20:03 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Remote: finished segment check at segment 89
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:20:00 (2/2)
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:20:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:20:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:20:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.112s CPU time.
+Oct 16 13:25:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:25:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:25:00
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Archive fingerprint: bec8e0e2522c8414cdd353a13a0aa0ab106096a50334c21aa6dad056b5351454
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:25:01
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:25:01
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:25:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:25:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:25:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:25:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:25:01 ubuntu-jammy borg-backup: 
+Oct 16 13:25:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:25:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:25:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:25:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:25:00              Fri, 2026-10-16 13:25:01 [bec8e0e2522c8414cdd353a13a0aa0ab106096a50334c21aa6dad056b5351454]
+Oct 16 13:25:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:20:00              Fri, 2026-10-16 13:20:01 [30a2fd78b3389149dd5af6d213bd78a46625e1bfa8901716eb58f8781d521f98]
+Oct 16 13:25:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:25:04 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Remote: finished segment check at segment 101
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:25:00 (2/2)
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:25:05 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:25:05 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:25:05 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.107s CPU time.
+Oct 16 13:30:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:30:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:30:00
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Archive fingerprint: e544ca26b7e8126d1d53ad8d10bdaf33465606e19b9ee422032077f7c104035a
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:30:01
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:30:01
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:30:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:30:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:30:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:30:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:30:01 ubuntu-jammy borg-backup: 
+Oct 16 13:30:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:30:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:30:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:30:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:30:00              Fri, 2026-10-16 13:30:01 [e544ca26b7e8126d1d53ad8d10bdaf33465606e19b9ee422032077f7c104035a]
+Oct 16 13:30:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:25:00              Fri, 2026-10-16 13:25:01 [bec8e0e2522c8414cdd353a13a0aa0ab106096a50334c21aa6dad056b5351454]
+Oct 16 13:30:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:30:02 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Remote: finished segment check at segment 113
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:30:03 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:30:04 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:30:00 (2/2)
+Oct 16 13:30:04 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:30:04 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:30:04 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:30:04 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.109s CPU time.
+Oct 16 13:35:00 ubuntu-jammy borg-backup: Backup started: /etc -> borg@192.168.11.160:/var/backup/
+Oct 16 13:35:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Repository: ssh://borg@192.168.11.160/var/backup
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Archive name: etc-2026-10-16_13:35:00
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Archive fingerprint: 75faddf875b774758a2dba4394d309f419c4c14f7419edf3c5dbe8256774b1d8
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Time (start): Fri, 2026-10-16 13:35:01
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Time (end):   Fri, 2026-10-16 13:35:01
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Duration: 0.07 seconds
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Number of files: 704
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Utilization of max. archive size: 0%
+Oct 16 13:35:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:35:01 ubuntu-jammy borg-backup:                        Original size      Compressed size    Deduplicated size
+Oct 16 13:35:01 ubuntu-jammy borg-backup: This archive:                2.11 MB            929.56 kB                624 B
+Oct 16 13:35:01 ubuntu-jammy borg-backup: All archives:                6.32 MB              2.79 MB            969.03 kB
+Oct 16 13:35:01 ubuntu-jammy borg-backup: 
+Oct 16 13:35:01 ubuntu-jammy borg-backup:                        Unique chunks         Total chunks
+Oct 16 13:35:01 ubuntu-jammy borg-backup: Chunk index:                     670                 2088
+Oct 16 13:35:01 ubuntu-jammy borg-backup: ------------------------------------------------------------------------------
+Oct 16 13:35:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily #1):        etc-2026-10-16_13:35:00              Fri, 2026-10-16 13:35:01 [75faddf875b774758a2dba4394d309f419c4c14f7419edf3c5dbe8256774b1d8]
+Oct 16 13:35:02 ubuntu-jammy borg-backup: Pruning archive (1/1):                   etc-2026-10-16_13:30:00              Fri, 2026-10-16 13:30:01 [e544ca26b7e8126d1d53ad8d10bdaf33465606e19b9ee422032077f7c104035a]
+Oct 16 13:35:02 ubuntu-jammy borg-backup: Keeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f]
+Oct 16 13:35:03 ubuntu-jammy borg-backup: Remote: compaction freed about 2.67 kB repository space.
+Oct 16 13:35:04 ubuntu-jammy borg-backup: Remote: Starting repository check
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Remote: finished segment check at segment 125
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Remote: Starting repository index check
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Remote: Index object count match.
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Remote: Finished full repository check, no problems found.
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Starting archive consistency check...
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_12:45:00 (1/2)
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Analyzing archive etc-2026-10-16_13:35:00 (2/2)
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Archive consistency check complete, no problems found.
+Oct 16 13:35:05 ubuntu-jammy borg-backup: Backup finished, exit code: 0
+Oct 16 13:35:05 ubuntu-jammy systemd[1]: borg-backup.service: Deactivated successfully.
+Oct 16 13:35:05 ubuntu-jammy systemd[1]: borg-backup.service: Consumed 1.114s CPU time.
