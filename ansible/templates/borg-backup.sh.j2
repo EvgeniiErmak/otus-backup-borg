@@ -12,6 +12,7 @@ BACKUP_TARGET='{{ backup_target }}'
 
 # Весь вывод скрипта (stdout + stderr) -> syslog с тегом borg-backup
 exec > >(logger -t "$LOG_TAG") 2>&1
+LOGGER_PID=$!
 
 rc=0
 run() {
@@ -32,10 +33,14 @@ run borg prune --list --glob-archives 'etc-*' \
     --keep-daily {{ keep_daily }} --keep-monthly {{ keep_monthly }}
 
 # Освобождение места после prune (borg >= 1.2)
-run borg compact
+run borg compact --verbose
 
 # Проверка целостности репозитория
-run borg check
+run borg check --verbose
 
 echo "Backup finished, exit code: ${rc}"
+
+# Закрываем вывод и ждём, пока logger допишет всё в syslog
+exec >&- 2>&-
+wait "$LOGGER_PID"
 exit "$rc"

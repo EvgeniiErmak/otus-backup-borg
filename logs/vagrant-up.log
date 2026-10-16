@@ -1,0 +1,190 @@
+Bringing machine 'backup_server' up with 'virtualbox' provider...
+Bringing machine 'client' up with 'virtualbox' provider...
+==> backup_server: Importing base box 'ubuntu/jammy64'...
+[KProgress: 90%[K==> backup_server: Matching MAC address for NAT networking...
+==> backup_server: Setting the name of the VM: backup_server
+Vagrant is currently configured to create VirtualBox synced folders with
+the `SharedFoldersEnableSymlinksCreate` option enabled. If the Vagrant
+guest is not trusted, you may want to disable this option. For more
+information on this option, please refer to the VirtualBox manual:
+
+  https://www.virtualbox.org/manual/ch04.html#sharedfolders
+
+This option can be disabled globally with an environment variable:
+
+  VAGRANT_DISABLE_VBOXSYMLINKCREATE=1
+
+or on a per folder basis within the Vagrantfile:
+
+  config.vm.synced_folder '/host/path', '/guest/path', SharedFoldersEnableSymlinksCreate: false
+==> backup_server: Clearing any previously set network interfaces...
+==> backup_server: Preparing network interfaces based on configuration...
+    backup_server: Adapter 1: nat
+    backup_server: Adapter 2: hostonly
+==> backup_server: Forwarding ports...
+    backup_server: 22 (guest) => 2222 (host) (adapter 1)
+==> backup_server: Running 'pre-boot' VM customizations...
+==> backup_server: Booting VM...
+==> backup_server: Waiting for machine to boot. This may take a few minutes...
+    backup_server: SSH address: 127.0.0.1:2222
+    backup_server: SSH username: vagrant
+    backup_server: SSH auth method: private key
+    backup_server: 
+    backup_server: Vagrant insecure key detected. Vagrant will automatically replace
+    backup_server: this with a newly generated keypair for better security.
+    backup_server: 
+    backup_server: Inserting generated public key within guest...
+    backup_server: Removing insecure key from the guest if it's present...
+    backup_server: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> backup_server: Machine booted and ready!
+==> backup_server: Checking for guest additions in VM...
+    backup_server: The guest additions on this VM do not match the installed version of
+    backup_server: VirtualBox! In most cases this is fine, but in rare cases it can
+    backup_server: prevent things such as shared folders from working properly. If you see
+    backup_server: shared folder errors, please make sure the guest additions within the
+    backup_server: virtual machine match the version of VirtualBox you have installed on
+    backup_server: your host and reload your VM.
+    backup_server: 
+    backup_server: Guest Additions Version: 6.0.0 r127566
+    backup_server: VirtualBox Version: 7.2
+==> backup_server: Setting hostname...
+==> backup_server: Configuring and enabling network interfaces...
+==> backup_server: Mounting shared folders...
+    backup_server: /root/otus-backup-borg => /vagrant
+==> client: Importing base box 'ubuntu/jammy64'...
+[KProgress: 90%[K==> client: Matching MAC address for NAT networking...
+==> client: Setting the name of the VM: client
+==> client: Fixed port collision for 22 => 2222. Now on port 2200.
+==> client: Clearing any previously set network interfaces...
+==> client: Preparing network interfaces based on configuration...
+    client: Adapter 1: nat
+    client: Adapter 2: hostonly
+==> client: Forwarding ports...
+    client: 22 (guest) => 2200 (host) (adapter 1)
+==> client: Running 'pre-boot' VM customizations...
+==> client: Booting VM...
+==> client: Waiting for machine to boot. This may take a few minutes...
+    client: SSH address: 127.0.0.1:2200
+    client: SSH username: vagrant
+    client: SSH auth method: private key
+    client: 
+    client: Vagrant insecure key detected. Vagrant will automatically replace
+    client: this with a newly generated keypair for better security.
+    client: 
+    client: Inserting generated public key within guest...
+    client: Removing insecure key from the guest if it's present...
+    client: Key inserted! Disconnecting and reconnecting using new SSH key...
+==> client: Machine booted and ready!
+==> client: Checking for guest additions in VM...
+    client: The guest additions on this VM do not match the installed version of
+    client: VirtualBox! In most cases this is fine, but in rare cases it can
+    client: prevent things such as shared folders from working properly. If you see
+    client: shared folder errors, please make sure the guest additions within the
+    client: virtual machine match the version of VirtualBox you have installed on
+    client: your host and reload your VM.
+    client: 
+    client: Guest Additions Version: 6.0.0 r127566
+    client: VirtualBox Version: 7.2
+==> client: Setting hostname...
+==> client: Configuring and enabling network interfaces...
+==> client: Mounting shared folders...
+    client: /root/otus-backup-borg => /vagrant
+==> client: Running provisioner: ansible...
+    client: Running ansible-playbook...
+[WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+[DEPRECATION WARNING]: The '--inventory-file' argument is deprecated. This feature will be removed from ansible-core version 2.23. Use -i or --inventory instead.
+
+PLAY [Install BorgBackup on all hosts] *****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [backup_server]
+ok: [client]
+
+TASK [Install borgbackup] ******************************************************
+changed: [backup_server]
+changed: [client]
+
+PLAY [Configure backup_server] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [backup_server]
+
+TASK [Create user borg] ********************************************************
+changed: [backup_server]
+
+TASK [Find backup disk (2048 MB)] **********************************************
+ok: [backup_server]
+
+TASK [Check filesystem on backup disk] *****************************************
+ok: [backup_server]
+
+TASK [Create ext4 filesystem on backup disk] ***********************************
+changed: [backup_server]
+
+TASK [Create mount point /var/backup] ******************************************
+changed: [backup_server]
+
+TASK [Add /var/backup to /etc/fstab] *******************************************
+changed: [backup_server]
+
+TASK [Check that /var/backup is mounted] ***************************************
+ok: [backup_server]
+
+TASK [Mount /var/backup] *******************************************************
+changed: [backup_server]
+
+TASK [Remove lost+found (borg init needs an empty directory)] ******************
+changed: [backup_server]
+
+TASK [Set owner borg on /var/backup] *******************************************
+changed: [backup_server]
+
+TASK [Create ~borg/.ssh] *******************************************************
+changed: [backup_server]
+
+PLAY [Configure client] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [client]
+
+TASK [Create /root/.ssh] *******************************************************
+ok: [client]
+
+TASK [Generate SSH key for root] ***********************************************
+changed: [client]
+
+TASK [Read public key] *********************************************************
+ok: [client]
+
+TASK [Authorize client key on backup_server (borg serve only)] *****************
+changed: [client -> backup_server(127.0.0.1)]
+
+TASK [Check backup_server in known_hosts] **************************************
+ok: [client]
+
+TASK [Add backup_server host key to known_hosts] *******************************
+changed: [client]
+
+TASK [Check borg repository exists] ********************************************
+ok: [client -> backup_server(127.0.0.1)]
+
+TASK [Init borg repository (encryption=repokey)] *******************************
+changed: [client]
+
+TASK [Export repokey to /root/borg-repokey.txt] ********************************
+changed: [client]
+
+TASK [Deploy backup script] ****************************************************
+changed: [client]
+
+TASK [Deploy systemd service and timer] ****************************************
+changed: [client] => (item=borg-backup.service)
+changed: [client] => (item=borg-backup.timer)
+
+TASK [Enable and start borg-backup.timer] **************************************
+changed: [client]
+
+PLAY RECAP *********************************************************************
+backup_server              : ok=14   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+client                     : ok=15   changed=9    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+

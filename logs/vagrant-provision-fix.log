@@ -1,0 +1,99 @@
+==> client: Running provisioner: ansible...
+    client: Running ansible-playbook...
+[WARNING]: Deprecation warnings can be disabled by setting `deprecation_warnings=False` in ansible.cfg.
+[DEPRECATION WARNING]: The '--inventory-file' argument is deprecated. This feature will be removed from ansible-core version 2.23. Use -i or --inventory instead.
+
+PLAY [Install BorgBackup on all hosts] *****************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [backup_server]
+ok: [client]
+
+TASK [Install borgbackup] ******************************************************
+ok: [backup_server]
+ok: [client]
+
+PLAY [Configure backup_server] *************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [backup_server]
+
+TASK [Create user borg] ********************************************************
+ok: [backup_server]
+
+TASK [Find backup disk (2048 MB)] **********************************************
+ok: [backup_server]
+
+TASK [Check filesystem on backup disk] *****************************************
+ok: [backup_server]
+
+TASK [Create ext4 filesystem on backup disk] ***********************************
+skipping: [backup_server]
+
+TASK [Create mount point /var/backup] ******************************************
+changed: [backup_server]
+
+TASK [Add /var/backup to /etc/fstab] *******************************************
+ok: [backup_server]
+
+TASK [Check that /var/backup is mounted] ***************************************
+ok: [backup_server]
+
+TASK [Mount /var/backup] *******************************************************
+skipping: [backup_server]
+
+TASK [Remove lost+found (borg init needs an empty directory)] ******************
+ok: [backup_server]
+
+TASK [Set owner borg on /var/backup] *******************************************
+changed: [backup_server]
+
+TASK [Create ~borg/.ssh] *******************************************************
+ok: [backup_server]
+
+PLAY [Configure client] ********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [client]
+
+TASK [Create /root/.ssh] *******************************************************
+ok: [client]
+
+TASK [Generate SSH key for root] ***********************************************
+ok: [client]
+
+TASK [Read public key] *********************************************************
+ok: [client]
+
+TASK [Authorize client key on backup_server (borg serve only)] *****************
+ok: [client -> backup_server(127.0.0.1)]
+
+TASK [Check backup_server in known_hosts] **************************************
+ok: [client]
+
+TASK [Add backup_server host key to known_hosts] *******************************
+skipping: [client]
+
+TASK [Check borg repository exists] ********************************************
+ok: [client -> backup_server(127.0.0.1)]
+
+TASK [Init borg repository (encryption=repokey)] *******************************
+skipping: [client]
+
+TASK [Export repokey to /root/borg-repokey.txt] ********************************
+ok: [client]
+
+TASK [Deploy backup script] ****************************************************
+changed: [client]
+
+TASK [Deploy systemd service and timer] ****************************************
+ok: [client] => (item=borg-backup.service)
+ok: [client] => (item=borg-backup.timer)
+
+TASK [Enable and start borg-backup.timer] **************************************
+ok: [client]
+
+PLAY RECAP *********************************************************************
+backup_server              : ok=12   changed=2    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+client                     : ok=13   changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
