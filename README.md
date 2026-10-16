@@ -18,7 +18,7 @@
 
 ## Схема сети
 
-~~
+~~~
                 Хост otus-1 (Ubuntu 26.04, VirtualBox 7.2)
                                  |
                  host-only сеть 192.168.11.0/24
@@ -29,7 +29,7 @@
      | borg client           |----->| borg serve (user borg)      |
      | /etc -> бэкап         |      | /var/backup = /dev/sdc 2 ГБ |
      +-----------------------+      +-----------------------------+
-~~
+~~~
 
 ## Структура репозитория
 
@@ -54,10 +54,10 @@
 
 ## Запуск
 
-~~bash
+~~~bash
 vagrant up
 vagrant ssh client -c 'sudo systemctl list-timers borg-backup.timer'
-~~
+~~~
 
 ## Восстановление /etc
 
