@@ -314,3 +314,67 @@ Oct 16 13:35:05 client borg-backup[4269]: [0;1;39m[0;1;31m[0;1;39mAnalyzing a
 Oct 16 13:35:05 client borg-backup[4269]: [0;1;39m[0;1;31m[0;1;39mAnalyzing archive etc-2026-10-16_13:35:00 (2/2)[0m
 Oct 16 13:35:05 client borg-backup[4269]: [0;1;39m[0;1;31m[0;1;39mArchive consistency check complete, no problems found.[0m
 Oct 16 13:35:05 client borg-backup[4269]: [0;1;39m[0;1;31m[0;1;39mBackup finished, exit code: 0[0m
+Oct 16 13:40:00 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mBackup started: /etc -> borg@192.168.11.160:/var/backup/[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRepository: ssh://borg@192.168.11.160/var/backup[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mArchive name: etc-2026-10-16_13:40:00[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mArchive fingerprint: 086229e51a9df5c15cf329f75549a4b044c23ce8e0d40c592180ff920b517b3f[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mTime (start): Fri, 2026-10-16 13:40:01[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mTime (end):   Fri, 2026-10-16 13:40:01[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mDuration: 0.07 seconds[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mNumber of files: 704[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mUtilization of max. archive size: 0%[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39m                       Original size      Compressed size    Deduplicated size[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mThis archive:                2.11 MB            929.56 kB                623 B[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mAll archives:                6.32 MB              2.79 MB            969.03 kB[0m
+Oct 16 13:40:01 client borg-backup[4590]: 
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39m                       Unique chunks         Total chunks[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mChunk index:                     670                 2088[0m
+Oct 16 13:40:01 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:40:02 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mKeeping archive (rule: daily #1):        etc-2026-10-16_13:40:00              Fri, 2026-10-16 13:40:01 [086229e51a9df5c15cf329f75549a4b044c23ce8e0d40c592180ff920b517b3f][0m
+Oct 16 13:40:02 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mPruning archive (1/1):                   etc-2026-10-16_13:35:00              Fri, 2026-10-16 13:35:01 [75faddf875b774758a2dba4394d309f419c4c14f7419edf3c5dbe8256774b1d8][0m
+Oct 16 13:40:02 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mKeeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f][0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: compaction freed about 2.67 kB repository space.[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: Starting repository check[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: finished segment check at segment 137[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: Starting repository index check[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: Index object count match.[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mRemote: Finished full repository check, no problems found.[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mStarting archive consistency check...[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mAnalyzing archive etc-2026-10-16_12:45:00 (1/2)[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mAnalyzing archive etc-2026-10-16_13:40:00 (2/2)[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mArchive consistency check complete, no problems found.[0m
+Oct 16 13:40:03 client borg-backup[4590]: [0;1;39m[0;1;31m[0;1;39mBackup finished, exit code: 0[0m
+Oct 16 13:50:26 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mBackup started: /etc -> borg@192.168.11.160:/var/backup/[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRepository: ssh://borg@192.168.11.160/var/backup[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mArchive name: etc-2026-10-16_13:50:26[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mArchive fingerprint: 17622833810199b85128043198694d568d7d0c8757a7f7e60ebef6d93c5cc981[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mTime (start): Fri, 2026-10-16 13:50:27[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mTime (end):   Fri, 2026-10-16 13:50:27[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mDuration: 0.17 seconds[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mNumber of files: 704[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mUtilization of max. archive size: 0%[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39m                       Original size      Compressed size    Deduplicated size[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mThis archive:                2.11 MB            929.53 kB                592 B[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mAll archives:                6.32 MB              2.79 MB              1.04 MB[0m
+Oct 16 13:50:27 client borg-backup[4785]: 
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39m                       Unique chunks         Total chunks[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mChunk index:                     672                 2087[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39m------------------------------------------------------------------------------[0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mKeeping archive (rule: daily #1):        etc-2026-10-16_13:50:26              Fri, 2026-10-16 13:50:27 [17622833810199b85128043198694d568d7d0c8757a7f7e60ebef6d93c5cc981][0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mPruning archive (1/1):                   etc-2026-10-16_13:40:00              Fri, 2026-10-16 13:40:01 [086229e51a9df5c15cf329f75549a4b044c23ce8e0d40c592180ff920b517b3f][0m
+Oct 16 13:50:27 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mKeeping archive (rule: daily[oldest] #2): etc-2026-10-16_12:45:00              Fri, 2026-10-16 12:45:01 [21b8cfe9e5bf8f7373079fd5d0e20ad1326fe8538a775cf1fc4950668a51fd2f][0m
+Oct 16 13:50:29 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: compaction freed about 2.68 kB repository space.[0m
+Oct 16 13:50:29 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: Starting repository check[0m
+Oct 16 13:50:29 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: finished segment check at segment 149[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: Starting repository index check[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: Index object count match.[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mRemote: Finished full repository check, no problems found.[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mStarting archive consistency check...[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mAnalyzing archive etc-2026-10-16_12:45:00 (1/2)[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mAnalyzing archive etc-2026-10-16_13:50:26 (2/2)[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mArchive consistency check complete, no problems found.[0m
+Oct 16 13:50:30 client borg-backup[4785]: [0;1;39m[0;1;31m[0;1;39mBackup finished, exit code: 0[0m
