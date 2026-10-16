@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Резервное копирование {{ backup_target }} на backup_server (BorgBackup).
+# Managed by Ansible.
+set -uo pipefail
+
+export BORG_REPO='{{ borg_repo }}'
+export BORG_PASSPHRASE='{{ borg_passphrase }}'
+export BORG_RSH='ssh -i /root/.ssh/id_ed25519 -o BatchMode=yes'
+
+LOG_TAG='borg-backup'
+BACKUP_TARGET='{{ backup_target }}'
+
+# Весь вывод скрипта (stdout + stderr) -> syslog с тегом borg-backup
+exec > >(logger -t "$LOG_TAG") 2>&1
+
+rc=0
+run() {
+    "$@"
+    local r=$?
+    [ "$r" -gt "$rc" ] && rc=$r
+    return 0
+}
+
+echo "Backup started: ${BACKUP_TARGET} -> ${BORG_REPO}"
+
+# Имя архива содержит дату и время снятия бэкапа
+run borg create --stats --compression lz4 \
+    "::etc-{now:%Y-%m-%d_%H:%M:%S}" "$BACKUP_TARGET"
+
+# Политика хранения: 3 месяца ежедневных + 9 месячных = 1 год
+run borg prune --list --glob-archives 'etc-*' \
+    --keep-daily {{ keep_daily }} --keep-monthly {{ keep_monthly }}
+
+# Освобождение места после prune (borg >= 1.2)
+run borg compact
+
+# Проверка целостности репозитория
+run borg check
+
+echo "Backup finished, exit code: ${rc}"
+exit "$rc"

@@ -1,0 +1,15 @@
+---
+ansible_python_interpreter: /usr/bin/python3
+
+backup_server_ip: 192.168.11.160
+borg_user: borg
+backup_dir: /var/backup
+backup_disk_size_mb: 2048
+
+borg_repo: "{{ borg_user }}@{{ backup_server_ip }}:{{ backup_dir }}/"
+borg_passphrase: Otus1234
+backup_target: /etc
+
+# 90 ежедневных (3 месяца) + 9 месячных = глубина 1 год
+keep_daily: 90
+keep_monthly: 9

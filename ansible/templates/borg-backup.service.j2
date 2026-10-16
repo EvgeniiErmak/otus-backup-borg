@@ -1,0 +1,10 @@
+[Unit]
+Description=Borg backup of {{ backup_target }} to backup_server
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/borg-backup.sh
+Nice=10
+IOSchedulingClass=idle

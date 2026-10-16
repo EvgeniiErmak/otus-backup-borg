@@ -1,0 +1,168 @@
+---
+- name: Install BorgBackup on all hosts
+  hosts: all
+  become: true
+  tasks:
+    - name: Install borgbackup
+      ansible.builtin.apt:
+        name: borgbackup
+        state: present
+        update_cache: true
+        cache_valid_time: 3600
+
+- name: Configure backup_server
+  hosts: backup
+  become: true
+  tasks:
+    - name: Create user borg
+      ansible.builtin.user:
+        name: "{{ borg_user }}"
+        shell: /bin/bash
+        create_home: true
+
+    - name: Find backup disk ({{ backup_disk_size_mb }} MB)
+      ansible.builtin.shell: |
+        set -o pipefail
+        lsblk -dnbo NAME,SIZE,TYPE | awk '$2 == {{ backup_disk_size_mb * 1024 * 1024 }} && $3 == "disk" {print "/dev/"$1; exit}'
+      args:
+        executable: /bin/bash
+      register: backup_disk
+      changed_when: false
+      failed_when: backup_disk.stdout | length == 0
+
+    - name: Check filesystem on backup disk
+      ansible.builtin.command: blkid -o value -s TYPE {{ backup_disk.stdout }}
+      register: backup_fs
+      changed_when: false
+      failed_when: false
+
+    - name: Create ext4 filesystem on backup disk
+      ansible.builtin.command: mkfs.ext4 -q -L BACKUP {{ backup_disk.stdout }}
+      when: backup_fs.stdout | length == 0
+
+    - name: Create mount point {{ backup_dir }}
+      ansible.builtin.file:
+        path: "{{ backup_dir }}"
+        state: directory
+        mode: "0755"
+
+    - name: Add {{ backup_dir }} to /etc/fstab
+      ansible.builtin.lineinfile:
+        path: /etc/fstab
+        regexp: '\s{{ backup_dir }}\s'
+        line: "LABEL=BACKUP {{ backup_dir }} ext4 defaults,nofail 0 2"
+
+    - name: Check that {{ backup_dir }} is mounted
+      ansible.builtin.command: findmnt {{ backup_dir }}
+      register: backup_mnt
+      changed_when: false
+      failed_when: false
+
+    - name: Mount {{ backup_dir }}
+      ansible.builtin.shell: systemctl daemon-reload && mount {{ backup_dir }}
+      when: backup_mnt.rc != 0
+
+    - name: Remove lost+found (borg init needs an empty directory)
+      ansible.builtin.file:
+        path: "{{ backup_dir }}/lost+found"
+        state: absent
+
+    - name: Set owner borg on {{ backup_dir }}
+      ansible.builtin.file:
+        path: "{{ backup_dir }}"
+        state: directory
+        owner: "{{ borg_user }}"
+        group: "{{ borg_user }}"
+        mode: "0700"
+
+    - name: Create ~borg/.ssh
+      ansible.builtin.file:
+        path: "/home/{{ borg_user }}/.ssh"
+        state: directory
+        owner: "{{ borg_user }}"
+        group: "{{ borg_user }}"
+        mode: "0700"
+
+- name: Configure client
+  hosts: clients
+  become: true
+  vars:
+    backup_host: "{{ groups['backup'][0] }}"
+    borg_env:
+      BORG_PASSPHRASE: "{{ borg_passphrase }}"
+      BORG_RSH: "ssh -i /root/.ssh/id_ed25519 -o BatchMode=yes"
+  tasks:
+    - name: Create /root/.ssh
+      ansible.builtin.file:
+        path: /root/.ssh
+        state: directory
+        mode: "0700"
+
+    - name: Generate SSH key for root
+      ansible.builtin.command: ssh-keygen -q -t ed25519 -N "" -C "root@client-borg" -f /root/.ssh/id_ed25519
+      args:
+        creates: /root/.ssh/id_ed25519
+
+    - name: Read public key
+      ansible.builtin.slurp:
+        src: /root/.ssh/id_ed25519.pub
+      register: client_pubkey
+
+    - name: Authorize client key on backup_server (borg serve only)
+      ansible.builtin.lineinfile:
+        path: "/home/{{ borg_user }}/.ssh/authorized_keys"
+        line: 'command="/usr/bin/borg serve --restrict-to-path {{ backup_dir }}",restrict {{ client_pubkey.content | b64decode | trim }}'
+        create: true
+        owner: "{{ borg_user }}"
+        group: "{{ borg_user }}"
+        mode: "0600"
+      delegate_to: "{{ backup_host }}"
+
+    - name: Check backup_server in known_hosts
+      ansible.builtin.command: ssh-keygen -F {{ backup_server_ip }} -f /root/.ssh/known_hosts
+      register: known_host
+      changed_when: false
+      failed_when: false
+
+    - name: Add backup_server host key to known_hosts
+      ansible.builtin.shell: ssh-keyscan -t ed25519 {{ backup_server_ip }} >> /root/.ssh/known_hosts
+      when: known_host.rc != 0
+
+    - name: Check borg repository exists
+      ansible.builtin.stat:
+        path: "{{ backup_dir }}/config"
+      register: borg_repo_cfg
+      delegate_to: "{{ backup_host }}"
+
+    - name: Init borg repository (encryption=repokey)
+      ansible.builtin.command: borg init --encryption=repokey {{ borg_repo }}
+      environment: "{{ borg_env }}"
+      when: not borg_repo_cfg.stat.exists
+
+    - name: Export repokey to /root/borg-repokey.txt
+      ansible.builtin.command: borg key export {{ borg_repo }} /root/borg-repokey.txt
+      args:
+        creates: /root/borg-repokey.txt
+      environment: "{{ borg_env }}"
+
+    - name: Deploy backup script
+      ansible.builtin.template:
+        src: templates/borg-backup.sh.j2
+        dest: /usr/local/bin/borg-backup.sh
+        mode: "0700"
+
+    - name: Deploy systemd service and timer
+      ansible.builtin.template:
+        src: "templates/{{ item }}.j2"
+        dest: "/etc/systemd/system/{{ item }}"
+        mode: "0644"
+      loop:
+        - borg-backup.service
+        - borg-backup.timer
+
+    - name: Enable and start borg-backup.timer
+      ansible.builtin.systemd:
+        name: borg-backup.timer
+        enabled: true
+        state: started
+        daemon_reload: true
